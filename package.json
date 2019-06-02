@@ -1,0 +1,27 @@
+{
+  "name": "shopno",
+  "version": "1.0.0",
+  "description": "Test task for Zenetix Digital Production",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oleshka24/shopno.git"
+  },
+  "author": "@Oleshka_24",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Oleshka24/shopno/issues"
+  },
+  "homepage": "https://github.com/Oleshka24/shopno#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.5",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5"
+  }
+}

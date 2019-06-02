@@ -1,0 +1,36 @@
+@import 'fonts';
+@import 'colors';
+
+// Main Settings
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 10px;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+section {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+ol, ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+// Grid
+
+.container {
+	width: 1140px;
+}
