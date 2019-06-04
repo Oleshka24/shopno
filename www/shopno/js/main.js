@@ -21,14 +21,12 @@ testimonalsCarousel.owlCarousel({
 	items: 1,
 //	autoplay: true,
 
-	touchDrag: false,
-	mouseDrag: false,
-
-	nav: false,
-	navContainer: $('.none'),
+	nav: true,
+	navClass: ['testimonals__carousel-btn--prev testimonals__carousel-btn', 'testimonals__carousel-btn--next testimonals__carousel-btn'],
+	navContainer: $('.testimonals__carousel-nav'),
 
 	dots: true,
-	dotsContainer: $('.testimonals__carousel-nav')
+	dotsContainer: $('.testimonals__carousel-dots')
 });
 
 // OWL CAROUSEL - FIX

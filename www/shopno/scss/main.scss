@@ -34,7 +34,9 @@ a {
 	background-color: $gray;
 
 	&__wrap {
-		width: 114rem;
+		width: 117rem;
+		padding-left: 1.5rem;	
+		padding-right: 1.5rem;	
 		min-height: 100%;
 		margin: auto;
 		position: relative;
@@ -131,6 +133,7 @@ a {
 		text-transform: uppercase;
 		color: $text;
 		transition: all .1s;
+		cursor: pointer;
 
 		&:hover {
 			color: $white;
@@ -399,7 +402,7 @@ a {
 			align-items: flex-start;
 			background-color: $main;
 			color: $mainDark;
-			transition: all .5s;
+			transition: all .3s;
 			left: -100%;
 		}
 
@@ -648,21 +651,35 @@ a {
 
 	&__carousel {
 		@extend .about__carousel;
-		width: calc(33.33333% + 3rem);
+		width: 100%;
 		padding: 0;
 
 		&-list {
 			@extend .about__carousel-list;
 
 			&::before {
-				@extend .about__carousel-list::before;
-				height: 36rem;
+				display: none;
 			}
 		}
 
 		&-item {
-			@extend .about__carousel-item;
+			@extend .about__carousel-item;	
+			width: 31.5rem;
 			height: 41rem;
+			position: relative;
+
+			&::before {
+				@extend .about__carousel-list::before;
+				height: 36rem;
+				width: calc(100% + 9rem)
+			}
+
+			&-cont {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
 
 			img {
 				width: 100%;
@@ -671,8 +688,9 @@ a {
 			}
 		}
 
-		&-nav {
+		&-dots {
 			@extend .about__carousel-nav;
+			width: 40.5rem;
 		}
 
 		&-dot {
@@ -682,5 +700,260 @@ a {
 				@extend .about__carousel-dot.active;
 			}
 		}
+
+		&-pagination {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		&-nav {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+		}
+
+		&-btn {
+			height: 5.5rem;
+			width: 5.5rem;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			border-width: 0;
+			font-size: .1rem;
+			color: $white;
+			border-radius: .3rem;
+			background-color: $white;
+			box-shadow: 0 0 20px -10px $grayDark;
+			cursor: pointer;
+			transition: all .1s;
+
+			&:hover {
+				color: $main;
+				background-color: $main;
+
+				&::before,
+				&::after {
+					background-color: $mainDark;
+					opacity: 1;
+				}
+			}
+
+			&::before,
+			&::after {
+				content: "";
+				width: 1.3rem;
+				height: .5rem;
+				margin: .15rem;
+				position: relative;
+				cursor: pointer;
+				background-color: $text;
+				opacity: .5;
+				transition: all .1s;
+			}
+
+			&::before {
+				transform: rotateZ(45deg) skewX(-45deg);
+			}
+
+			&::after {
+				transform: rotateZ(-45deg) skewX(45deg);
+			}
+
+			&--prev {
+				margin-right: 3rem;
+				transform: rotateZ(180deg);
+			}
+		}
+	}
+
+	&__member {
+		max-width: 65rem;
+		height: 36rem;
+		padding: 1.5rem;
+		text-align: center;
+		background-color: $gray;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&-cont {
+			width: 75%;
+			margin: auto;
+		}
+
+		&-name {
+			@extend .team__member-name;
+			color: $title;
+		}
+
+		&-position {
+			@extend .team__member-position;
+			text-transform: uppercase;
+		}
+
+		&-about {
+			@extend .team__member-about;
+		}
+
+		&-stars {
+			width: 11rem;
+			margin: 3rem auto 0;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		&-star {
+			font-size: 1.3rem;
+			color: $yellow;
+		}
+	}
+}
+
+.logos {
+	@extend .works;
+	min-height:	max-content;
+
+	&__wrap {
+		@extend .header__wrap;
+	}
+
+	&__list {
+		width: 100%;
+		margin: 4rem 0 0;	
+		display: flex;
+		justify-content: space-between;	
+		align-items: center;	
+
+		&--current {
+			width: 50%;	
+			margin: auto;	
+		}
+	}
+}
+
+.contacts {
+	@extend .works;
+	background-image: url('../img/bgs/contacts_bg.jpg');
+	background-size: cover;	
+	background-position: center;
+	box-shadow: inset 0 0 550px 250px $grayLight;
+
+	&__wrap {
+		@extend .header__wrap;
+		height: 100%;
+	}
+
+	&__form {
+		width: calc(50% + 6rem);
+		min-height: 100%;
+		padding: 3.5rem 3rem;	
+		display: flex;	
+		flex-direction: column;	
+		background-color: $contactsBg + bf;
+		color: $contacts;
+	}
+
+	&__input {
+		min-height: 4.5rem;
+		margin-bottom: 1.5rem;	
+		border-width: 0;
+		border-bottom: 1px solid $contacts+a1;
+		font-family: Raleway;
+		font-size: 1.5rem;
+		font-weight: 400;
+		background-color: transparent;
+		color: $white;
+
+		&::placeholder {
+			color: $contacts;
+		}
+	}
+
+	&__textarea {
+		height: 12.6rem;
+	}
+
+	&__submit {
+		@extend .banner__btn;
+		margin: 2rem auto 0 0;	
+		border-width: 0;
+		background-color: $main;
+		color: $mainDark;
+
+		&:hover {
+			background-color: $mainDark;
+		}
+	}
+
+	&__content {
+		@extend .contacts__form;
+		width: calc(50% - 9rem);
+		padding-bottom: 2rem;	
+		font-family: Raleway;
+		font-size: 1.5rem;
+		font-weight: 400;
+		line-height: 1.5;
+	}
+
+	&__paragraph {
+		margin: 0;
+	}
+
+	&__map {
+		width: 	calc(100% + 2rem);
+		height: 22.5rem;
+		margin: 2rem -1rem -0;
+	}
+}
+
+.footer {
+	padding: 9rem 0;
+	color: $grayMedium;
+	background-color: $mainDark;
+	font-family: Raleway;
+
+	&__wrap {
+		@extend .header__wrap;
+		flex-direction: column;	
+		justify-content: center;	
+		align-items: center;	
+	}
+
+	&__heading {
+		margin: 0;	
+		color: $gray;
+		text-transform: uppercase;
+		font-size: 1.6rem;		
+		font-weight: 400;	
+	}
+
+	&__social {
+		margin: 1.5rem 0 4rem;
+	}
+
+	&__btn {
+		width: 4.5rem;	
+		height: 4rem;	
+		margin: 0 .3rem;	
+		font-size: 2.35rem;	
+		display: inline-flex;	
+		justify-content: center;	
+		align-items: center;	
+		background-color: $text;
+		transition: all .2s;
+
+		&:hover {
+			color: $mainDark;
+			background-color: $main;
+		}	
+	}
+
+	&__copyright {
+		margin: 0;	
+		font-size: 1.6rem;	
 	}
 }
